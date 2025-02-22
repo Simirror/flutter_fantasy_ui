@@ -1,0 +1,20 @@
+name: flutter_fantasy_ui
+description: A fantasy-style UI component library for Flutter
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.13.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  nine_slicing: ^0.0.1
+
+flutter:
+  assets:
+    - assets/Default/Border/
+    - assets/Default/Divider/
+    - assets/Double/Border/
+    - assets/Double/Divider/

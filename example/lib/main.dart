@@ -1,79 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fantasy_ui/border/border_creater.dart';
-import 'package:flutter_fantasy_ui/fantasy_ui.dart';
+
+import 'container/border_showcase.dart';
+import 'container/border_demo.dart';
+import 'container/panel_showcase.dart';
+import 'components/component_showcase.dart';
 
 void main() {
-  runApp(MaterialApp(home: Scaffold(body: Center(child: CrossBorderWidget()))));
+  runApp(MaterialApp(home: const MyHomePage()));
 }
 
-class CrossBorderWidget extends StatefulWidget {
-  @override
-  State<CrossBorderWidget> createState() => _CrossBorderWidgetState();
-}
-
-class _CrossBorderWidgetState extends State<CrossBorderWidget> {
-  double width = 200;
-  double height = 200;
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: width,
-          height: height,
-          color: Colors.blue,
-          child: SwallowBorder(
-            width: width,
-            height: height,
-          ),
-        ),
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  const Text('宽度: '),
-                  Expanded(
-                    child: Slider(
-                      value: width,
-                      min: 100,
-                      max: 400,
-                      onChanged: (value) {
-                        setState(() {
-                          width = value;
-                        });
-                      },
-                    ),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Flutter Fantasy UI Demo')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BorderShowcase(),
                   ),
-                  Text('${width.toStringAsFixed(0)}'),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text('高度: '),
-                  Expanded(
-                    child: Slider(
-                      value: height,
-                      min: 100,
-                      max: 400,
-                      onChanged: (value) {
-                        setState(() {
-                          height = value;
-                        });
-                      },
-                    ),
+                );
+              },
+              child: const Text('查看所有边框样式'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const BorderDemo()),
+                );
+              },
+              child: const Text('边框演示'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PanelShowcase(),
                   ),
-                  Text('${height.toStringAsFixed(0)}'),
-                ],
-              ),
-            ],
-          ),
+                );
+              },
+              child: const Text('查看所有面板样式'),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

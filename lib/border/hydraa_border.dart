@@ -4,18 +4,15 @@ import 'package:flutter_fantasy_ui/image_border.dart';
 import '../assets.dart';
 
 // ignore: must_be_immutable
-class SwallowBorder extends ImageBorderBuilder {
-  SwallowBorder({
+class HydraaBorder extends ImageBorderBuilder {
+  HydraaBorder({
     super.key,
     super.width,
     super.height,
     super.borderWidth = 2,
     super.slicingSize,
     super.borderColor,
-    super.margin = EdgeInsets.zero,
-    super.padding = EdgeInsets.zero,
     this.child,
-    //super.cornerInterfacePosition = CornerInterfacePosition.center,
-  }) : super(elements: border_panel_border_000, child: child);
+  }) : super(elements: border_panel_border_007, child: child);
   Widget? child;
 }

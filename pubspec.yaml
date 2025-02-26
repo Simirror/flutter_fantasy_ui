@@ -12,9 +12,3 @@ dependencies:
     sdk: flutter
   nine_slicing: ^0.0.1
 
-flutter:
-  assets:
-    - assets/Default/Border/
-    - assets/Default/Divider/
-    - assets/Double/Border/
-    - assets/Double/Divider/
